@@ -5,6 +5,7 @@ import { darkTheme, lightTheme } from "./styles/theme";
 import { Header } from "./components/Header/Header";
 import { Container } from "./components/Container/Container.styled";
 import useThemeMode from "./hooks/useThemeMode";
+import { SearchBar } from "./components/SearchBar/SearchBar";
 function App() {
   const { theme, themeToggler } = useThemeMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
@@ -17,6 +18,12 @@ function App() {
           </Header.Logo>
           <Header.ToggleButton themeToggler={themeToggler}/>
         </Header>
+        <Container>
+          <SearchBar>
+            <SearchBar.Input/>
+            <SearchBar.Filter/>
+          </SearchBar>
+        </Container>
     </ThemeProvider>
   );
 }

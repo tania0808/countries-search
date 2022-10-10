@@ -1,15 +1,13 @@
 import React from "react";
 import { Wrapper, NavLogo, ToggleModeButton } from "./Header.styled";
 import { FaRegMoon, FaMoon } from "react-icons/fa";
-type Props = {
-  children: JSX.Element | JSX.Element[];
-};
+import { PropsChildren } from "../PropsChildren";
 
-export const Header = ({ children, ...restProps }: Props) => {
+export const Header = ({ children, ...restProps }: PropsChildren) => {
   return <Wrapper>{children}</Wrapper>;
 };
 
-Header.Logo = function HeaderLogo({ children, ...restProps }: Props) {
+Header.Logo = function HeaderLogo({ children, ...restProps }: PropsChildren) {
   return <NavLogo>{children}</NavLogo>;
 };
 
@@ -17,18 +15,20 @@ interface ThemeTogglerProps {
   themeToggler: () => void;
 }
 
-Header.ToggleButton = function HeaderToggleButton({ themeToggler }: ThemeTogglerProps) {
-  const theme = localStorage.getItem('theme');
+Header.ToggleButton = function HeaderToggleButton({
+  themeToggler,
+}: ThemeTogglerProps) {
+  const theme = localStorage.getItem("theme");
   return (
     <ToggleModeButton>
-      {theme !== 'light' ? (
+      {theme !== "light" ? (
         <>
-          <FaRegMoon onClick={themeToggler}/>
+          <FaRegMoon onClick={themeToggler} />
           <p>Light Mode</p>
         </>
-      ): (
+      ) : (
         <>
-          <FaMoon onClick={themeToggler}/>
+          <FaMoon onClick={themeToggler} />
           <p>Dark Mode</p>
         </>
       )}
