@@ -6,6 +6,7 @@ import { Header } from "./components/Header/Header";
 import { Container } from "./components/Container/Container.styled";
 import useThemeMode from "./hooks/useThemeMode";
 import { SearchBar } from "./components/SearchBar/SearchBar";
+import { Cards } from "./layouts/Cards";
 function App() {
   const { theme, themeToggler } = useThemeMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
@@ -23,6 +24,7 @@ function App() {
             <SearchBar.Input/>
             <SearchBar.Filter/>
           </SearchBar>
+          <Cards/>
         </Container>
     </ThemeProvider>
   );
