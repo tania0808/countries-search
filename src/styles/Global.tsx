@@ -1,6 +1,9 @@
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
+import { ThemeProps } from "./styled.d";
 
-
+type GlobalThemeProps = {
+    theme: ThemeProps
+}
 
 export const GlobalStyles = createGlobalStyle`
 *,
@@ -14,5 +17,7 @@ export const GlobalStyles = createGlobalStyle`
 body {
   font-family: 'Nunito Sans', sans-serif;
   overflow-x: hidden;
+  background: ${({ theme }: GlobalThemeProps) => theme.background};
+  color: ${({ theme }: GlobalThemeProps) => theme.text};
 }
 `;

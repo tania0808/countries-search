@@ -1,13 +1,24 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./styles/Global";
-import { theme, darkTheme, whiteTheme } from "./styles/theme";
-
+import { darkTheme, lightTheme } from "./styles/theme";
+import { Header } from "./components/Header/Header";
+import { Container } from "./components/Container/Container.styled";
+import useThemeMode from "./hooks/useThemeMode";
 function App() {
+  const { theme, themeToggler } = useThemeMode();
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
   return (
-    <ThemeProvider theme={whiteTheme}>
+    <ThemeProvider theme={themeMode}>
       <GlobalStyles />
-      hello
+      <Container>
+        <Header>
+          <Header.Logo>
+            <p>Where in the world ?</p>
+          </Header.Logo>
+          <Header.ToggleButton themeToggler={themeToggler}/>
+        </Header>
+      </Container>
     </ThemeProvider>
   );
 }
