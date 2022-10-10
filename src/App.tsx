@@ -11,14 +11,12 @@ function App() {
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
-      <Container>
         <Header>
           <Header.Logo>
             <p>Where in the world ?</p>
           </Header.Logo>
           <Header.ToggleButton themeToggler={themeToggler}/>
         </Header>
-      </Container>
     </ThemeProvider>
   );
 }

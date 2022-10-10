@@ -6,6 +6,10 @@ export const Wrapper = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 20px;
+    background: ${({ theme }) => theme.element};
+    box-shadow: 0 4px 2px -2px ${({ theme }) => theme.shadow};
+
 `;
 
 export const NavLogo = styled.h1`

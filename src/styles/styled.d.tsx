@@ -3,5 +3,6 @@ import 'styled-components'
 export interface ThemeProps {
     text: string,
     element: string,
-    background: string
+    background: string,
+    shadow: string
 }
