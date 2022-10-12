@@ -20,4 +20,10 @@ body {
   background: ${({ theme }: GlobalThemeProps) => theme.background};
   color: ${({ theme }: GlobalThemeProps) => theme.text};
 }
+
+a {
+  text-decoration: none;
+  color: ${({ theme }: GlobalThemeProps) => theme.text};
+}
+
 `;
