@@ -1,7 +1,7 @@
 import React from "react";
 import { Wrapper, NavLogo, ToggleModeButton } from "./Header.styled";
 import { FaRegMoon, FaMoon } from "react-icons/fa";
-import { PropsChildren } from "../PropsChildren";
+import { PropsChildren } from "../Props";
 
 export const Header = ({ children, ...restProps }: PropsChildren) => {
   return <Wrapper>{children}</Wrapper>;

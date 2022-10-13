@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { PropsChildren } from "../PropsChildren";
+import { PropsChildren } from "../Props";
 import {
   SearchWrapper,
   SearchInput,

@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Image, Body, Title } from "./Card.styled";
-import { PropsChildren } from "../PropsChildren";
+import { PropsChildren } from "../Props";
 interface Props extends PropsChildren {
   code: number
 }
