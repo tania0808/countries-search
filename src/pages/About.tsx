@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import { Header } from "../components/Header/Header";
@@ -18,10 +18,10 @@ export const About = () => {
   const themeMode = theme === "light" ? lightTheme : darkTheme;
   const { id } = useParams();
   const { data, fetchUrl } = useFetch(baseUrl, `alpha/${id}`);
-  if (data) console.log(data[0]);
+
   useEffect(() => {
     fetchUrl(`alpha/${id}`);
-  }, []);
+  }, [id]);
 
   return (
     <ThemeProvider theme={themeMode}>
@@ -39,10 +39,15 @@ export const About = () => {
               <BiArrowBack />
             </Button>
           </Link>
-          <CountryDetails src={data[0].flags.svg} alt={data[0].name.common} />
+          <CountryDetails
+            details={data}
+            src={data[0].flags.svg}
+            alt={data[0].name.common}
+          />
         </Container>
-      ):<h1>Loading ...</h1>}
-      
+      ) : (
+        <h1>Loading ...</h1>
+      )}
     </ThemeProvider>
   );
 };

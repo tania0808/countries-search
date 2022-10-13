@@ -10,6 +10,6 @@ export const Btn = styled.button`
   align-items: center;
   border: none;
   border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 `;

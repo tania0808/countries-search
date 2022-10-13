@@ -5,16 +5,18 @@ export const Wrapper = styled.main`
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   row-gap: 30px;
+
   @media (max-width: 968px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (max-width: 645px) {
+
+  @media (max-width: 840px) {
     grid-template-columns: repeat(1, 1fr);
   }
 `;
 
 export const Card = styled.div`
-  width: 264px;
+  width: 300px;
   background: ${({ theme }) => theme.element};
   border-radius: 10px;
   overflow: hidden;
@@ -32,6 +34,7 @@ export const Body = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
+
   & > p {
     font-size: 14px;
 
