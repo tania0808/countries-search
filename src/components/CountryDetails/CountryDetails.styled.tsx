@@ -38,7 +38,7 @@ export const Details = styled.div`
   width: 100%;
   flex: 1;
   padding: 0 0 0 2rem;
-  justify-content: space-between;
+  justify-content: space-evenly;
 
   @media (max-width: 840px) {
     padding: 2rem 0 0 0;

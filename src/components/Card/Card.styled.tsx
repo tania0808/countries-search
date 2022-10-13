@@ -6,7 +6,7 @@ export const Wrapper = styled.main`
   justify-items: center;
   row-gap: 30px;
 
-  @media (max-width: 968px) {
+  @media (max-width: 1240px) {
     grid-template-columns: repeat(2, 1fr);
   }
 

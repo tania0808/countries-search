@@ -1,23 +1,12 @@
 import React from "react";
 import { Card, Image, Body, Title } from "./Card.styled";
-import { PropsChildren } from "../Props";
-interface Props extends PropsChildren {
-  code: number
-}
+import { PropsChildren, ImageProps } from "../Props";
 
-export const CountryCard = ({ children, code }: Props) => {
-  const handleFilter = () => {
-    console.log(code);
-  }
-  return <Card onClick={handleFilter}>{children}</Card>;
+export const CountryCard = ({ children }: PropsChildren) => {
+  return <Card>{children}</Card>;
 };
 
-interface ImageP {
-  alt: string;
-  src: string;
-}
-
-CountryCard.Image = function CardImage({ src, alt }: ImageP) {
+CountryCard.Image = function CardImage({ src, alt }: ImageProps) {
   return <Image src={src} alt={alt} />;
 };
 

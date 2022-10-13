@@ -1,5 +1,5 @@
 import { MouseEventHandler } from "react";
-import { Btn } from "./index.styled";
+import { Btn } from "./Button.styled";
 
 interface ButtonProps {
   buttonText: string;
@@ -7,6 +7,7 @@ interface ButtonProps {
   type?: "button" | "submit";
   children?: JSX.Element | JSX.Element[];
 }
+
 export const Button = ({
   buttonText,
   clickHandler,

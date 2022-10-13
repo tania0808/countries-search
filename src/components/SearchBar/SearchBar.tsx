@@ -9,9 +9,9 @@ import {
 import { FiSearch } from "react-icons/fi";
 import { BsChevronCompactDown, BsChevronCompactUp } from "react-icons/bs";
 import { useFetch } from "../../hooks/useFetch";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store";
 import { allCountries, errorHandler } from "../../reducers/countriesReducer";
-
 const baseUrl = "https://restcountries.com/v3.1";
 
 export const SearchBar = ({ children }: PropsChildren) => {
@@ -19,8 +19,9 @@ export const SearchBar = ({ children }: PropsChildren) => {
 };
 
 SearchBar.Input = function SearchBarInput() {
-  const [query, setQuery] = useState<string | number | null>("all");
+  const [query, setQuery] = useState<string>("all");
   const { data, fetchUrl } = useFetch(baseUrl, "all");
+  const error = useSelector((state: RootState) => state.countries.error);
   const dispatch = useDispatch();
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,17 +30,18 @@ SearchBar.Input = function SearchBarInput() {
 
   useEffect(() => {
     if (data) dispatch(allCountries(data));
-  }, [data]);
+  }, [data, query]);
 
   useEffect(() => {
     const getData = setTimeout(() => {
-      if (query !== "" && query !== "all") {
+      if ((query !== "" && query !== "all") || error) {
         fetchUrl(`name/${query}`);
       } else {
         fetchUrl("all");
-        dispatch(errorHandler(false));
       }
     }, 600);
+    dispatch(errorHandler(false));
+
     return () => clearTimeout(getData);
   }, [query]);
 
@@ -58,8 +60,8 @@ SearchBar.Input = function SearchBarInput() {
 SearchBar.Filter = function SearchBarFilter() {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
-  const regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
   const { data, fetchUrl } = useFetch(baseUrl, "all");
+  const regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
 
   const handleOpenSelect = () => {
     setIsOpen(!isOpen);

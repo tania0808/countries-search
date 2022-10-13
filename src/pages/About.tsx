@@ -4,16 +4,17 @@ import { useFetch } from "../hooks/useFetch";
 import { Header } from "../components/Header/Header";
 import { darkTheme, lightTheme } from "../styles/theme";
 import { BiArrowBack } from "react-icons/bi";
-import { Button } from "../components/Button";
+import { Button } from "../components/Button/Button";
 import { ThemeProvider } from "styled-components";
 import { Container } from "../components/Container/Container.styled";
 import { GlobalStyles } from "../styles/Global";
 import useThemeMode from "../hooks/useThemeMode";
 import { Link } from "react-router-dom";
-import { CountryDetails } from "../components/CountryDetails";
+import { CountryDetails } from "../components/CountryDetails/CountryDetails";
+
+const baseUrl = "https://restcountries.com/v3.1";
 
 export const About = () => {
-  const baseUrl = "https://restcountries.com/v3.1";
   const { theme, themeToggler } = useThemeMode();
   const themeMode = theme === "light" ? lightTheme : darkTheme;
   const { id } = useParams();

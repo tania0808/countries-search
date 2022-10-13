@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 export const Cards = () => {
   const countries = useSelector((state: RootState) => state.countries.value);
   const error = useSelector((state: RootState) => state.countries.error);
-  
 
   if (error) {
     return <h1>There is no such a country</h1>;
@@ -17,8 +16,8 @@ export const Cards = () => {
     return (
       <Wrapper>
         {countries.map((country: any, index: number) => (
-            <CountryCard key={index} code={country.ccn3}>
-                <Link to={`/about/${country.ccn3}`}>
+          <CountryCard key={index}>
+            <Link to={`/about/${country.ccn3}`}>
               <CountryCard.Image
                 src={country.flags.png ? country.flags.png : null}
                 alt={country.name.common}
@@ -38,8 +37,8 @@ export const Cards = () => {
                   {country.capital}
                 </p>
               </CountryCard.Body>
-          </Link>
-            </CountryCard>
+            </Link>
+          </CountryCard>
         ))}
       </Wrapper>
     );

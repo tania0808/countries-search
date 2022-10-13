@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useFetch } from "../../hooks/useFetch";
-import { Wrapper, Image, Details, Title } from "./index.styled";
-import { Button } from "../Button";
+import { Wrapper, Image, Details, Title } from "./CountryDetails.styled";
+import { Button } from "../Button/Button";
 import {
   PropsChildren,
   DetailsProps,
