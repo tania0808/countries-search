@@ -30,7 +30,7 @@ SearchBar.Input = function SearchBarInput() {
 
   useEffect(() => {
     if (data) dispatch(allCountries(data));
-  }, [data, query]);
+  }, [data, query, dispatch]);
 
   useEffect(() => {
     const getData = setTimeout(() => {
